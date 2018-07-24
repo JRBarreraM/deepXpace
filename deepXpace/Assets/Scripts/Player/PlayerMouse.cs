@@ -9,6 +9,8 @@ public class PlayerMouse : MonoBehaviour {
 	public float mTopBorder;
 	public float mBottomBorder;
 
+	private Transform mTransform;
+
 	void Awake () {
 		mTransform = transform;
 	}
@@ -27,11 +29,11 @@ public class PlayerMouse : MonoBehaviour {
 	}
 
 	void UpdateMovement() {
-		Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,Camera.main.nearClipPlano));
+		Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,Camera.main.nearClipPlane));
 		pos.x = Mathf.Clamp(pos.x,mLeftBorder,mRightBorder);
 		pos.y = Mathf.Clamp(pos.y,mTopBorder,mBottomBorder);
 		pos.z = 0;
-		mTransform.position = pos
+		mTransform.position = pos;
 	}
 
 }

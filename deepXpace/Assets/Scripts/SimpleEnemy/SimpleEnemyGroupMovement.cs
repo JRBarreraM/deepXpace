@@ -5,6 +5,9 @@ public class SimpleEnemyGroupMovement : MonoBehaviour {
 
 	public float speed = 5f; //Determina la velocidad del enemigo
 	public float delay = 3f; //Determina el tiempo que pasara el enemigo antes de ir al siguiente punto
+	public enum simpleEnemyStates {Waiting,Moving}; //Variable de tipo enum para distinguir los estados del enemigo simple
+
+	public static simpleEnemyStates state; //Almacena el estado actual del grupo de enemigos simples
 
 	private Transform target; //Punto actual a seguir
 	private int pointIndex = 0; //Indice del arreglo de puntos a seguir
@@ -22,12 +25,15 @@ public class SimpleEnemyGroupMovement : MonoBehaviour {
 			if (timeCount <= 0){ //Verificamos si el contador de tiempo es menor igual a cero
 				GetNextPoint (); //Llamamos a GetNextPoint para indicar que ya alcanzamos el punto actual y queremos seguir el punto siguiente
 				timeCount = delay; //Reiniciamos el contador al tiempo de retardo
+			}else{
+				state = simpleEnemyStates.Waiting; //Actualizamos el estado a esperando
 			}
 
 			timeCount -= Time.deltaTime; //Restamos al contador el equivalente en segundos por frame
 
 		} else { //Si la distancia aun no es lo suficientemente pequeña, entonces
 			transform.Translate (direction.normalized * speed * Time.deltaTime, Space.World); //Trasladamos el enemigo hasta la posicion del target
+			state = simpleEnemyStates.Moving; //Actualizamos el estado movimiento
 		}
 	}
 

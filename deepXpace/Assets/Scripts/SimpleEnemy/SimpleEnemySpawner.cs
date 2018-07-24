@@ -19,17 +19,17 @@ public class SimpleEnemySpawner : MonoBehaviour {
 	void Update () {
 		totalActualEnemy = GameObject.FindGameObjectsWithTag (enemyTag).Length; //Asignamos en cada iteracion la cantidad de enemigos actuales
 
-		if (totalActualEnemy < maxActualEnemyCount) {
-			if (timeCount <= 0f) {
-				Spawn ();
-				timeCount = timeBetweenGroups;
+		if (totalActualEnemy < maxActualEnemyCount) { //Verificamos que aun podemos seguir instanciando enemigos
+			if (timeCount <= 0f) { //Verificamos que podemos instanciar el siguiente enemigo, esto se hace viendo si ya pasaron tantos segundos
+				Spawn (); //Llamamos al metodo Spawn para instanciar el enemigo correspondiente
+				timeCount = timeBetweenGroups; //Resetamos el contador de tiempo
 			}
 
-			timeCount -= Time.deltaTime;
+			timeCount -= Time.deltaTime; //Descontamos un segundo en el contador de tiempo
 		}
 	}
 
-	void Spawn() {
+	void Spawn() { //Metodo que se encarga de instanciar un tipo de enemigo especifico
 		Instantiate (actualEnemy, transform.position, transform.rotation);
 	}
 }

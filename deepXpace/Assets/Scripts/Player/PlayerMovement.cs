@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour {
 	float up;
 	float down;
 
-	// Update is called once per frame
 	void Update () {
 		if (Input.GetKey (KeyCode.LeftArrow)) {
 			left = -1;
