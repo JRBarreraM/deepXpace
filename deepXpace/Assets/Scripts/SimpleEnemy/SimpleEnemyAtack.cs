@@ -3,8 +3,10 @@
 public class SimpleEnemyAtack : MonoBehaviour {
 
 	public GameObject target; //Almacena el objetivo actual al cual el enemigo apunta
-	public float shootSpeed; //Velocidad del proyectil
+	public GameObject bulletPrefab;
 	public float shootRate; //Tiempo que pasa entre cada disparo de proyectil
+	public float shootSpeedMoving;
+	public float shootSpeedWaiting;
 
 	private Vector3 initialPosition; //Posicion inicial del target
 	private Vector3 playerPosition; //Posicion actual del objeto player
@@ -19,23 +21,18 @@ public class SimpleEnemyAtack : MonoBehaviour {
 		direction = target.transform.position - transform.position;
 
 		if (SimpleEnemyGroupMovement.state == SimpleEnemyGroupMovement.simpleEnemyStates.Moving) { //Verificamos si el enemigo se esta moviendo
-			MoovingAtack();
+			//Ataque en movimiento
 		} 
 
 		if (SimpleEnemyGroupMovement.state == SimpleEnemyGroupMovement.simpleEnemyStates.Waiting) { //Verificamos si el enemigo esta esperando
-			WaitingAtack();
+			//Ataque en espera
 		} 
 	}
 
-	void MoovingAtack() {
-		target.transform.position = transform.position + initialPosition;
-	}
+	void ShootingInMovement() {
+		GameObject bulletGO = (GameObject)Instantiate (bulletPrefab, transform.position, transform.rotation);
+		SimpleEnemyBulletBehavior bullet = bulletGO.GetComponent<SimpleEnemyBulletBehavior> ();
 
-	void WaitingAtack() {
-		target.transform.position = playerPosition;
-	}
-
-	void Shoot() {
-		
+		bullet.SetAttributes (direction.normalized, shootSpeedMoving);
 	}
 }
