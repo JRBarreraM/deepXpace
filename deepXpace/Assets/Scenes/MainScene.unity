@@ -138,7 +138,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 68278263}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12ec1ac4ac9ccfd44b9e688e24ffad65, type: 3}
+  m_Script: {fileID: 11500000, guid: b572344a96144704b80c584cc6bea837, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 1
@@ -213,7 +213,6 @@ GameObject:
   m_Component:
   - component: {fileID: 90168993}
   - component: {fileID: 90168992}
-  - component: {fileID: 90168994}
   - component: {fileID: 90168995}
   m_Layer: 0
   m_Name: Player
@@ -279,17 +278,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &90168994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 90168991}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3e301af76d753cf47be4801f77803044, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &90168995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +295,7 @@ MonoBehaviour:
   mRightBorder: 0.9
   mTopBorder: -0.9
   mBottomBorder: 0.9
-  Projectile: {fileID: 1304270918417890, guid: 88ed847f3c2e1d247962ecfb2316d6dc, type: 2}
+  Projectile: {fileID: 1304270918417890, guid: f7fb8d1dd8014354894c7b6729e86c1f, type: 2}
 --- !u!1 &117926989
 GameObject:
   m_ObjectHideFlags: 0
