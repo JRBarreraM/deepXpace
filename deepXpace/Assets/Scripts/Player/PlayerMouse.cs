@@ -9,7 +9,7 @@ public class PlayerMouse : MonoBehaviour {
 	public float mRightBorder;		//0.4f
 	public float mTopBorder;		//-0.9f
 	public float mBottomBorder;		//0.9f
-	public GameObject projectilePrefab;		//hay que agregar un projectilePrefab
+	public GameObject Projectile;		//hay que agregar un projectilePrefab
 	private bool mShooting;
 	private float FireTimer = 0.2f;
 	private float FireRate = 0.2f;
@@ -37,7 +37,7 @@ public class PlayerMouse : MonoBehaviour {
 		}
 
 		if(FireTimer<=0 && mShooting) {
-			Instantiate(projectilePrefab,mTransform.position,Quaternion.identity);
+			Instantiate(Projectile,mTransform.position,Quaternion.identity);
 			FireTimer = FireRate;
 			//audshoot.Play();
 		}
