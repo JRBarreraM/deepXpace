@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class PlayerMouse : MonoBehaviour {
-	public float speed;				// Valores ajustados a la escena piloto actual
-	public float layer;				//0
+	public float _speed;			// Valores ajustados a la escena piloto actual
+	public float _layer;			//0
 	public float mLeftBorder;		//-0.4f
 	public float mRightBorder;		//0.4f
 	public float mTopBorder;		//-0.9f
@@ -24,11 +26,11 @@ public class PlayerMouse : MonoBehaviour {
 	}
 
 	void UpdateMovement() {
-		Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(speed+Input.mousePosition.x,speed+Input.mousePosition.y,Camera.main.nearClipPlane));
-		pos.x = Mathf.Clamp(pos.x,mLeftBorder,mRightBorder);
-		pos.y = Mathf.Clamp(pos.y,mTopBorder,mBottomBorder);
-		pos.z = layer;
-		mTransform.position = pos;
+		Vector3 _target = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x,Input.mousePosition.y,Camera.main.nearClipPlane));
+		_target.x = Mathf.Clamp(_target.x,mLeftBorder,mRightBorder);
+		_target.y = Mathf.Clamp(_target.y,mTopBorder,mBottomBorder);
+		_target.z = _layer;
+		transform.position = Vector3.MoveTowards(transform.position,_target,_speed*Time.deltaTime);
 	}
-
+		
 }
