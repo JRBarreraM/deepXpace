@@ -2,10 +2,17 @@
 
 public class SimpleEnemySpawner : MonoBehaviour {
 
-	public GameObject actualEnemy; //Capturando el prefab del grupo de enemigos simples
-	public float timeBetweenGroups = 6f; //Tiempo entre aparicion de cada grupo
-	public string enemyTag; //Indicando el tag del enemigo
+	[Header("Attributes")]
+	[Tooltip("Tiempo que ocurre entra cada aparición de enemigos")]
+	public float timeBetweenGroups; //Tiempo entre aparicion de cada grupo
+	[Tooltip("Cantidad maxima de enemigos de un tipo")]
 	public float maxActualEnemyCount;
+
+	[Header("Configuration and Resourses")]
+	[Tooltip("Prefabricado del enemigo actual que es instanciado")]
+	public GameObject actualEnemy; //Capturando el prefab del grupo de enemigos simples
+	[Tooltip("Tag del enemigo actual que es instanciado")]
+	public string enemyTag; //Indicando el tag del enemigo
 
 	private float timeCount; //Tiempo transcurrido calculado en funcion del Time.deltaTime
 	private int totalActualEnemy; //Indica la cantidad de enemigos, del tag indicado, actuales en escena

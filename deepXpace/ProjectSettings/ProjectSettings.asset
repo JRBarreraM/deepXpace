@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 14
-  productGUID: 33799fce76e43af4bb95d2994e7d696d
+  productGUID: 8b3a1bbd9312efd41a1023df75288e7a
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   defaultScreenOrientation: 4
@@ -624,6 +624,7 @@ PlayerSettings:
   XboxOneSplashScreen: {fileID: 0}
   XboxOneAllowedProductIds: []
   XboxOnePersistentLocalStorageSize: 0
+  XboxOneXTitleMemory: 8
   xboxOneScriptCompiler: 0
   vrEditorSettings:
     daydream:

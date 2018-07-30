@@ -1,8 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
+
+	public float speed;
 
 	float speedX;
 	float speedY;
@@ -36,8 +36,8 @@ public class PlayerMovement : MonoBehaviour {
 			up = 0;
 		}
 
-		speedX = (left + right) * 3f * Time.deltaTime;
-		speedY = (up + down) * 3f * Time.deltaTime;
+		speedX = (left + right) * speed * Time.deltaTime;
+		speedY = (up + down) * speed * Time.deltaTime;
 
 		transform.position = new Vector3 (speedX + transform.position.x, speedY + transform.position.y, transform.position.z);
 	}
